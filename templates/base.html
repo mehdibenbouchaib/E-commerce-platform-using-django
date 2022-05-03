@@ -9,6 +9,16 @@
 <a href="{% url 'index' %}">
     <h1>MyStore</h1>
 </a>
+
+{% if user.is_authenticated %}
+    {{ user.username }}
+<a href="{% url 'logout' %}">Log Out></a>
+{% else %}
+<a href="{% url 'login' %}">Registry</a>
+<a href="{% url 'signup' %}">Log In</a>
+{% endif %}
+
+
 {% block content %}
 {% endblock %}
 
