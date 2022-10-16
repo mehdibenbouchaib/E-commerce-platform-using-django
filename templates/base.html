@@ -14,12 +14,20 @@
     {{ user.username }}
 <a href="{% url 'logout' %}">Log Out></a>
 {% else %}
-<a href="{% url 'login' %}">Registry</a>
-<a href="{% url 'signup' %}">Log In</a>
+
+<a href="{% url 'login' %}">Log In</a>
+<a href="{% url 'signup' %}">Registry</a>
+
 {% endif %}
 
+{% if user.cart %}
+<p>
+  <a href="{% url 'cart' %}">show cart ({{ user.cart.orders.count }})</a>
+</p>
+{% endif %}
 
 {% block content %}
+
 {% endblock %}
 
 </body>
